@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;  ../Drivers/STM32F1xx_HAL_Driver/Inc;  ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;  ../Drivers/CMSIS/Device/ST/STM32F1xx/Include;  ../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;..\..\..\..\Common_SDK\common_sdk;..\..\..\..\Common_SDK\common_sdk\defaults_config;..\..\..\..\Common_SDK\common_sdk\profile\battery;..\..\..\..\Common_SDK\common_sdk\profile\debug;..\..\..\..\Common_SDK\common_sdk\profile\device_info;..\..\..\..\Common_SDK\common_sdk\profile\protocol;..\..\..\..\Common_SDK\platform\devices;..\..\..\..\Common_SDK\system_config</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -389,9 +389,6 @@
               <FilePath>startup_stm32f103xb.s</FilePath>
             </File>
           </Files>
-        </Group>
-        <Group>
-          <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>
           <GroupName>Application/User</GroupName>
@@ -512,6 +509,84 @@
               <FilePath>../Src/system_stm32f1xx.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>MCOM_SDK/sdk/default_config</GroupName>
+          <Files>
+            <File>
+              <FileName>defaults_config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\..\..\Common_SDK\common_sdk\defaults_config\defaults_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>defaults_definitions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\..\..\Common_SDK\common_sdk\defaults_config\defaults_definitions.h</FilePath>
+            </File>
+            <File>
+              <FileName>sdk_include.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\..\..\Common_SDK\common_sdk\sdk_include.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MCOM_SDK/sdk/profile</GroupName>
+          <Files>
+            <File>
+              <FileName>battery_profile.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\battery\battery_profile.c</FilePath>
+            </File>
+            <File>
+              <FileName>assert_profile.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\debug\assert_profile.c</FilePath>
+            </File>
+            <File>
+              <FileName>log_profile.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\debug\log_profile.c</FilePath>
+            </File>
+            <File>
+              <FileName>printf_profile.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\debug\printf_profile.c</FilePath>
+            </File>
+            <File>
+              <FileName>device_info_profile.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\device_info\device_info_profile.c</FilePath>
+            </File>
+            <File>
+              <FileName>protocol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\protocol\protocol.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MCOM_SDK/platform/devices</GroupName>
+          <Files>
+            <File>
+              <FileName>platform_devices.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Common_SDK\platform\devices\platform_devices.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MCOM_SDK/system_config</GroupName>
+          <Files>
+            <File>
+              <FileName>system_config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\..\..\Common_SDK\system_config\system_config.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
     </Target>

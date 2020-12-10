@@ -21,6 +21,13 @@
 "intertia_wheel_pendulum\stm32f1xx_hal_tim_ex.o"
 "intertia_wheel_pendulum\stm32f1xx_hal_uart.o"
 "intertia_wheel_pendulum\system_stm32f1xx.o"
+"intertia_wheel_pendulum\battery_profile.o"
+"intertia_wheel_pendulum\assert_profile.o"
+"intertia_wheel_pendulum\log_profile.o"
+"intertia_wheel_pendulum\printf_profile.o"
+"intertia_wheel_pendulum\device_info_profile.o"
+"intertia_wheel_pendulum\protocol.o"
+"intertia_wheel_pendulum\platform_devices.o"
 --library_type=microlib --strict --scatter "intertia_wheel_pendulum\intertia_wheel_pendulum.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
