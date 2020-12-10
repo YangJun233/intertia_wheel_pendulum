@@ -1,0 +1,27 @@
+--cpu Cortex-M3
+"intertia_wheel_pendulum\startup_stm32f103xb.o"
+"intertia_wheel_pendulum\main.o"
+"intertia_wheel_pendulum\stm32f1xx_it.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_msp.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_gpio_ex.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_adc.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_adc_ex.o"
+"intertia_wheel_pendulum\stm32f1xx_hal.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_rcc.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_rcc_ex.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_gpio.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_dma.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_cortex.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_pwr.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_flash.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_flash_ex.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_exti.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_i2c.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_tim.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_tim_ex.o"
+"intertia_wheel_pendulum\stm32f1xx_hal_uart.o"
+"intertia_wheel_pendulum\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "intertia_wheel_pendulum\intertia_wheel_pendulum.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "intertia_wheel_pendulum.map" -o intertia_wheel_pendulum\intertia_wheel_pendulum.axf
