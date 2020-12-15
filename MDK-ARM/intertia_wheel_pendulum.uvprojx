@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;..\..\..\..\Common_SDK\common_sdk;..\..\..\..\Common_SDK\common_sdk\defaults_config;..\..\..\..\Common_SDK\common_sdk\profile\battery;..\..\..\..\Common_SDK\common_sdk\profile\debug;..\..\..\..\Common_SDK\common_sdk\profile\device_info;..\..\..\..\Common_SDK\common_sdk\profile\protocol;..\..\..\..\Common_SDK\platform\devices;..\..\..\..\Common_SDK\system_config</IncludePath>
+              <IncludePath>../Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;..\..\..\..\Common_SDK\common_sdk;..\..\..\..\Common_SDK\common_sdk\defaults_config;..\..\..\..\Common_SDK\common_sdk\profile\battery;..\..\..\..\Common_SDK\common_sdk\profile\debug;..\..\..\..\Common_SDK\common_sdk\profile\device_info;..\..\..\..\Common_SDK\common_sdk\profile\protocol;..\..\..\..\Common_SDK\common_sdk\profile\time;..\..\..\..\Common_SDK\common_sdk\library\driver\key;..\..\..\..\Common_SDK\common_sdk\library\driver\led;..\..\..\..\Common_SDK\system_config;..\..\..\..\Common_SDK\system_adapter;..\..\..\..\Common_SDK\system_adapter\hardware_platform</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -563,15 +563,10 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\protocol\protocol.c</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>MCOM_SDK/platform/devices</GroupName>
-          <Files>
             <File>
-              <FileName>platform_devices.c</FileName>
+              <FileName>delay_profile.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\platform\devices\platform_devices.c</FilePath>
+              <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\time\delay_profile.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -582,6 +577,36 @@
               <FileName>system_config.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\..\..\Common_SDK\system_config\system_config.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MCOM_SDK/sdk/driver</GroupName>
+          <Files>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Common_SDK\common_sdk\library\driver\key\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Common_SDK\common_sdk\library\driver\led\led.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MCOM_SDK/adapter</GroupName>
+          <Files>
+            <File>
+              <FileName>system_adapter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Common_SDK\system_adapter\system_adapter.c</FilePath>
+            </File>
+            <File>
+              <FileName>hardware_platform_adapter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Common_SDK\system_adapter\hardware_platform\hardware_platform_adapter.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -27,7 +27,11 @@
 "intertia_wheel_pendulum\printf_profile.o"
 "intertia_wheel_pendulum\device_info_profile.o"
 "intertia_wheel_pendulum\protocol.o"
-"intertia_wheel_pendulum\platform_devices.o"
+"intertia_wheel_pendulum\delay_profile.o"
+"intertia_wheel_pendulum\key.o"
+"intertia_wheel_pendulum\led.o"
+"intertia_wheel_pendulum\system_adapter.o"
+"intertia_wheel_pendulum\hardware_platform_adapter.o"
 --library_type=microlib --strict --scatter "intertia_wheel_pendulum\intertia_wheel_pendulum.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
