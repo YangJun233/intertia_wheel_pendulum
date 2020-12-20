@@ -24,9 +24,6 @@
 /* USER CODE BEGIN Includes */
 #include "sdk_include.h"
 #include "system_adapter.h"
-#include "delay_profile.h"
-#include "key.h"
-#include "led.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -120,11 +117,17 @@ int main(void)
     delay_adapter_init(&g_delay_adapter);
     key_adapter_init(&g_key_adapter);
     led_adapter_init(&g_led_adapter);
+    mpu6050_adapter_init(&g_mpu6050_adapter);
+    oled_adapter_init(&g_oled_adapter);
     /* USER CODE END 2 */
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
-    
+    OLED_ColorTurn(0);//0正常显示，1 反色显示
+    OLED_DisplayTurn(0);//0正常显示 1 屏幕翻转显示
+    OLED_ShowString(4,16,"2019/02",16,1);
+//    OLED_ShowString(0,0,"ASCII:",16,1);
+//    OLED_ShowString(0,16,"CODE:",16,1);
     while (1)
     {
         /* USER CODE END WHILE */
