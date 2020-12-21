@@ -32,6 +32,7 @@
 "intertia_wheel_pendulum\led.o"
 "intertia_wheel_pendulum\mpu6050.o"
 "intertia_wheel_pendulum\oled.o"
+"intertia_wheel_pendulum\motor.o"
 "intertia_wheel_pendulum\pid.o"
 "intertia_wheel_pendulum\system_adapter.o"
 "intertia_wheel_pendulum\hardware_platform_adapter.o"

@@ -126,10 +126,11 @@ int main(void)
     OLED_ColorTurn(0);//0正常显示，1 反色显示
     OLED_DisplayTurn(0);//0正常显示 1 屏幕翻转显示
     OLED_ShowString(4,16,"2019/02",16,1);
-//    OLED_ShowString(0,0,"ASCII:",16,1);
-//    OLED_ShowString(0,16,"CODE:",16,1);
+//		OLED_Refresh();
     while (1)
     {
+//			oled_iic_write_byte(0xa5, 1);
+//			sdk_delay_ms(100);
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
@@ -577,7 +578,7 @@ static void MX_GPIO_Init(void)
 
     /*Configure GPIO pins : OLED_SCL_Pin OLED_SDA_Pin */
     GPIO_InitStruct.Pin = OLED_SCL_Pin|OLED_SDA_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);

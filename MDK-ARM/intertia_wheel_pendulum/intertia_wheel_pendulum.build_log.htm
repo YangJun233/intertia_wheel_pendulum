@@ -3,98 +3,35 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ¦ÌVision V5.30.0.0
+IDE-Version: ¦ÌVision V5.32.0.0
 Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: y j, 0, LIC=TIVNB-2NBRG-DYEV3-ABC7E-96MJJ-S5Q6I
+License Information: 1 1, 1, LIC=8VRJ7-EKHYE-63UMB-2EDC5-IEFB9-LUHG3
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.30.0.0
-Toolchain Path:  D:\B\MDK5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 6 (build 750)
-Assembler:       Armasm.exe V5.06 update 6 (build 750)
-Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
-Library Manager: ArmAr.exe V5.06 update 6 (build 750)
-Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
-CPU DLL:         SARMCM3.DLL V5.30.0.0
+Toolchain:       MDK-ARM Plus  Version: 5.32.0.0
+Toolchain Path:  D:\A\MDK5.32\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.32.0.0
 Dialog DLL:      DCM.DLL V1.17.3.0
 Target DLL:      Segger\JL2CM3.dll V2.99.38.0
-Dialog DLL:      TCM.DLL V1.42.0.0
+Dialog DLL:      TCM.DLL V1.46.0.0
  
 <h2>Project:</h2>
-F:\MyWork\inertia_wheel_pendulum\software\intertia_wheel_pendulum\MDK-ARM\intertia_wheel_pendulum.uvprojx
-Project File Date:  12/20/2020
+H:\inertia_wheel_pendulum\MDK-ARM\intertia_wheel_pendulum.uvprojx
+Project File Date:  12/21/2020
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\B\MDK5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\A\MDK5.32\ARM\ARMCC\Bin'
 Build target 'intertia_wheel_pendulum'
-compiling stm32f1xx_it.c...
-compiling stm32f1xx_hal_adc_ex.c...
-compiling stm32f1xx_hal_gpio_ex.c...
-compiling main.c...
-compiling stm32f1xx_hal_msp.c...
-compiling stm32f1xx_hal.c...
-compiling stm32f1xx_hal_adc.c...
-compiling stm32f1xx_hal_cortex.c...
-compiling stm32f1xx_hal_gpio.c...
-compiling stm32f1xx_hal_pwr.c...
-compiling stm32f1xx_hal_rcc_ex.c...
-compiling stm32f1xx_hal_flash.c...
-compiling stm32f1xx_hal_dma.c...
-compiling stm32f1xx_hal_rcc.c...
-compiling stm32f1xx_hal_flash_ex.c...
-compiling battery_profile.c...
-..\..\..\..\Common_SDK\common_sdk\profile\battery\battery_profile.c(3): warning:  #550-D: variable "p_battery_adapter"  was set but never used
-  static battery_adapter_s * p_battery_adapter = NULL;
-..\..\..\..\Common_SDK\common_sdk\profile\battery\battery_profile.c: 1 warning, 0 errors
-compiling assert_profile.c...
-..\..\..\..\Common_SDK\common_sdk\profile\debug\assert_profile.c(3): warning:  #550-D: variable "p_assert_adapter"  was set but never used
-  static assert_adapter_s * p_assert_adapter = NULL;
-..\..\..\..\Common_SDK\common_sdk\profile\debug\assert_profile.c: 1 warning, 0 errors
-compiling system_stm32f1xx.c...
-compiling log_profile.c...
-..\..\..\..\Common_SDK\common_sdk\profile\debug\log_profile.c(3): warning:  #550-D: variable "p_log_adapter"  was set but never used
-  static log_adapter_s * p_log_adapter = NULL;
-..\..\..\..\Common_SDK\common_sdk\profile\debug\log_profile.c: 1 warning, 0 errors
-compiling device_info_profile.c...
-compiling printf_profile.c...
-..\..\..\..\Common_SDK\common_sdk\profile\debug\printf_profile.c(3): warning:  #550-D: variable "p_printf_adapter"  was set but never used
-  static printf_adapter_s * p_printf_adapter = NULL;
-..\..\..\..\Common_SDK\common_sdk\profile\debug\printf_profile.c: 1 warning, 0 errors
-compiling delay_profile.c...
-compiling stm32f1xx_hal_exti.c...
-compiling protocol.c...
-compiling stm32f1xx_hal_i2c.c...
-compiling key.c...
-compiling stm32f1xx_hal_tim_ex.c...
-compiling stm32f1xx_hal_uart.c...
-compiling mpu6050.c...
-..\..\..\..\Common_SDK\common_sdk\library\driver\imu\mpu6050.c(26): warning:  #177-D: function "read_bit"  was declared but never referenced
-  static bool read_bit(uint8_t reg, uint8_t bit)
-..\..\..\..\Common_SDK\common_sdk\library\driver\imu\mpu6050.c(42): warning:  #177-D: function "read_bits"  was declared but never referenced
-  static uint8_t read_bits(uint8_t reg, uint8_t bit, uint8_t len, uint8_t data)
-..\..\..\..\Common_SDK\common_sdk\library\driver\imu\mpu6050.c: 2 warnings, 0 errors
 compiling oled.c...
-compiling stm32f1xx_hal_tim.c...
-compiling motor.c...
-..\..\..\..\Common_SDK\common_sdk\library\algorithm\pid\pid.h(87): warning:  #1-D: last line of file ends without a newline
-  #endif // PID_H
-..\..\..\..\Common_SDK\common_sdk\library\driver\motor\motor.c(22): warning:  #940-D: missing return statement at end of non-void function "get_motor_position" 
-  }
-..\..\..\..\Common_SDK\common_sdk\library\driver\motor\motor.c(28): warning:  #940-D: missing return statement at end of non-void function "get_motor_speed" 
-  }
-..\..\..\..\Common_SDK\common_sdk\library\driver\motor\motor.c(30): error:  #147-D: declaration is incompatible with "void set_motor_pisition(uint8_t, pid_incremental_float_s *, float)"  (declared at line 31 of "..\..\..\..\Common_SDK\common_sdk\library\driver\motor\motor.h")
-  void set_motor_pisition(uint8_t idx, float angle)
-..\..\..\..\Common_SDK\common_sdk\library\driver\motor\motor.c(36): error:  #147-D: declaration is incompatible with "void set_motor_speed(uint8_t, pid_incremental_float_s *, float)"  (declared at line 32 of "..\..\..\..\Common_SDK\common_sdk\library\driver\motor\motor.h")
-  void set_motor_speed(uint8_t idx, float speed)
-..\..\..\..\Common_SDK\common_sdk\library\driver\motor\motor.c: 3 warnings, 2 errors
-compiling hardware_platform_adapter.c...
-..\..\..\..\Common_SDK\system_adapter\hardware_platform\hardware_platform_adapter.c(33): warning:  #188-D: enumerated type mixed with another type
-              HAL_GPIO_WritePin(GPIOB, LED_RED_Pin, pin_state);
-..\..\..\..\Common_SDK\system_adapter\hardware_platform\hardware_platform_adapter.c(36): warning:  #188-D: enumerated type mixed with another type
-              HAL_GPIO_WritePin(GPIOB, LED_GREEN_Pin, pin_state);
-..\..\..\..\Common_SDK\system_adapter\hardware_platform\hardware_platform_adapter.c: 2 warnings, 0 errors
-compiling system_adapter.c...
-"intertia_wheel_pendulum\intertia_wheel_pendulum.axf" - 2 Error(s), 11 Warning(s).
+linking...
+Program Size: Code=13584 RO-data=7988 RW-data=124 ZI-data=1908  
+FromELF: creating hex file...
+"intertia_wheel_pendulum\intertia_wheel_pendulum.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -111,14 +48,13 @@ Package Vendor: Keil
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_intertia_wheel_pendulum
-  D:\B\MDK5\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include
-  D:\B\MDK5\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include
+  D:\A\MDK5.32\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  D:\A\MDK5.32\Keil\STM32F1xx_DFP\2.3.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.4.0
-Target not created.
-Build Time Elapsed:  00:00:15
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
