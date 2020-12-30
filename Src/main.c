@@ -125,14 +125,11 @@ int main(void)
     /* USER CODE BEGIN WHILE */
     OLED_ColorTurn(0);//0正常显示，1 反色显示
     OLED_DisplayTurn(0);//0正常显示 1 屏幕翻转显示
-    OLED_ShowString(4,16,"-",16,1);
-//    OLED_DrawLine(31,16,63,17,1);
+    OLED_ShowString(20, 0,"I LOVE",8,1);
+    OLED_ShowString(25, 8,"LILU",8,1);
     OLED_Refresh();
     while (1)
     {
-//			oled_iic_write_byte(0xa5, 1);
-//			sdk_delay_ms(100);
-        
         set_led_state(0, true);
         sdk_delay_ms(1);
         set_led_state(0, false);
