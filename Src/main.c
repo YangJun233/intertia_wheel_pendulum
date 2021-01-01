@@ -125,15 +125,23 @@ int main(void)
     /* USER CODE BEGIN WHILE */
     OLED_ColorTurn(0);//0正常显示，1 反色显示
     OLED_DisplayTurn(0);//0正常显示 1 屏幕翻转显示
-    OLED_ShowString(20, 0,"I LOVE",8,1);
-    OLED_ShowString(25, 8,"LILU",8,1);
+    OLED_ShowString(20, 0,"Balance",8,1);
+    OLED_ShowString(25, 8,"Board",8,1);
+    OLED_ShowString(34, 16,"YJ",8,1);
     OLED_Refresh();
+
     while (1)
     {
-        set_led_state(0, true);
-        sdk_delay_ms(1);
-        set_led_state(0, false);
-        sdk_delay_ms(999);
+//        set_led_state(0, true);
+//        sdk_delay_ms(1);
+//        set_led_state(0, false);
+//        sdk_delay_ms(999);
+        OLED_ShowString(55, 24,"*",8,1);
+        sdk_delay_ms(500);
+        OLED_Refresh();
+        OLED_ShowString(55, 24," ",8,1);
+        sdk_delay_ms(500);
+        OLED_Refresh();
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
@@ -310,7 +318,7 @@ static void MX_TIM1_Init(void)
         Error_Handler();
     }
     /* USER CODE BEGIN TIM1_Init 2 */
-
+    HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_ALL);
     /* USER CODE END TIM1_Init 2 */
 
 }
@@ -359,7 +367,7 @@ static void MX_TIM2_Init(void)
         Error_Handler();
     }
     /* USER CODE BEGIN TIM2_Init 2 */
-
+    HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
     /* USER CODE END TIM2_Init 2 */
 
 }
@@ -383,9 +391,9 @@ static void MX_TIM3_Init(void)
 
     /* USER CODE END TIM3_Init 1 */
     htim3.Instance = TIM3;
-    htim3.Init.Prescaler = 0;
+    htim3.Init.Prescaler = 3-1;
     htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-    htim3.Init.Period = 65535;
+    htim3.Init.Period = 2400;
     htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
     htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
     if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
@@ -415,7 +423,9 @@ static void MX_TIM3_Init(void)
         Error_Handler();
     }
     /* USER CODE BEGIN TIM3_Init 2 */
-
+    HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+    HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+    HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
     /* USER CODE END TIM3_Init 2 */
     HAL_TIM_MspPostInit(&htim3);
 
@@ -433,19 +443,24 @@ static void MX_TIM4_Init(void)
 
     /* USER CODE END TIM4_Init 0 */
 
+    TIM_ClockConfigTypeDef sClockSourceConfig = {0};
     TIM_MasterConfigTypeDef sMasterConfig = {0};
-    TIM_OC_InitTypeDef sConfigOC = {0};
 
     /* USER CODE BEGIN TIM4_Init 1 */
 
     /* USER CODE END TIM4_Init 1 */
     htim4.Instance = TIM4;
-    htim4.Init.Prescaler = 0;
+    htim4.Init.Prescaler = 72-1;
     htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-    htim4.Init.Period = 65535;
+    htim4.Init.Period = 20000;
     htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
     htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-    if (HAL_TIM_PWM_Init(&htim4) != HAL_OK)
+    if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
+    {
+        Error_Handler();
+    }
+    sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+    if (HAL_TIM_ConfigClockSource(&htim4, &sClockSourceConfig) != HAL_OK)
     {
         Error_Handler();
     }
@@ -455,18 +470,9 @@ static void MX_TIM4_Init(void)
     {
         Error_Handler();
     }
-    sConfigOC.OCMode = TIM_OCMODE_PWM1;
-    sConfigOC.Pulse = 0;
-    sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-    sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-    if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
-    {
-        Error_Handler();
-    }
     /* USER CODE BEGIN TIM4_Init 2 */
-
+    HAL_TIM_Base_Start_IT(&htim4);
     /* USER CODE END TIM4_Init 2 */
-    HAL_TIM_MspPostInit(&htim4);
 
 }
 
@@ -555,7 +561,7 @@ static void MX_GPIO_Init(void)
 
     /*Configure GPIO pin Output Level */
     HAL_GPIO_WritePin(GPIOB, MOTOR_Y_DIR_Pin|OLED_SCL_Pin|OLED_SDA_Pin|LED_RED_Pin
-                      |LED_GREEN_Pin|MOTOR_R_DIR1_Pin|MOTOR_R_DIR2_Pin, GPIO_PIN_RESET);
+                      |LED_GREEN_Pin|MOTOR_R_DIR1_Pin|SERVO_PWM_Pin|MOTOR_R_DIR2_Pin, GPIO_PIN_RESET);
 
     /*Configure GPIO pins : KEY1_Pin KEY2_Pin */
     GPIO_InitStruct.Pin = KEY1_Pin|KEY2_Pin;
@@ -571,9 +577,9 @@ static void MX_GPIO_Init(void)
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     /*Configure GPIO pins : MOTOR_Y_DIR_Pin LED_RED_Pin LED_GREEN_Pin MOTOR_R_DIR1_Pin
-                             MOTOR_R_DIR2_Pin */
+                             SERVO_PWM_Pin MOTOR_R_DIR2_Pin */
     GPIO_InitStruct.Pin = MOTOR_Y_DIR_Pin|LED_RED_Pin|LED_GREEN_Pin|MOTOR_R_DIR1_Pin
-                          |MOTOR_R_DIR2_Pin;
+                          |SERVO_PWM_Pin|MOTOR_R_DIR2_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -581,7 +587,7 @@ static void MX_GPIO_Init(void)
 
     /*Configure GPIO pins : OLED_SCL_Pin OLED_SDA_Pin */
     GPIO_InitStruct.Pin = OLED_SCL_Pin|OLED_SDA_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
