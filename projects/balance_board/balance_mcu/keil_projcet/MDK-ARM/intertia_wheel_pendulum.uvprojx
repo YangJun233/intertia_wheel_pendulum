@@ -10,7 +10,7 @@
       <TargetName>intertia_wheel_pendulum</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060750::V5.06 update 6 (build 750)::.\ARMCC</pCCUsed>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;    ../Drivers/STM32F1xx_HAL_Driver/Inc;    ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;    ../Drivers/CMSIS/Device/ST/STM32F1xx/Include;    ../Drivers/CMSIS/Include;    ..\..\..\..\Common_SDK\common_sdk;    ..\..\..\..\Common_SDK\common_sdk\defaults_config;    ..\..\..\..\Common_SDK\common_sdk\profile\battery;    ..\..\..\..\Common_SDK\common_sdk\profile\debug;    ..\..\..\..\Common_SDK\common_sdk\profile\device_info;    ..\..\..\..\Common_SDK\common_sdk\profile\protocol;    ..\..\..\..\Common_SDK\common_sdk\profile\time;    ..\..\..\..\Common_SDK\common_sdk\library\driver\key;    ..\..\..\..\Common_SDK\common_sdk\library\driver\led;    ..\..\..\..\Common_SDK\common_sdk\library\driver\imu;    ..\..\..\..\Common_SDK\common_sdk\library\driver\oled;    ..\..\..\..\Common_SDK\common_sdk\library\driver\motor;    ..\..\..\..\Common_SDK\common_sdk\library\algorithm\pid;    ..\..\..\..\Common_SDK\system_config;    ..\..\..\..\Common_SDK\system_adapter;    ..\..\..\..\Common_SDK\system_adapter\hardware_platform</IncludePath>
+              <IncludePath>../Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;H:\Common_SDK\common_sdk;H:\Common_SDK\common_sdk\defaults_config;H:\Common_SDK\common_sdk\profile\battery;H:\Common_SDK\common_sdk\profile\debug;H:\Common_SDK\common_sdk\profile\device_info;H:\Common_SDK\common_sdk\profile\protocol;H:\Common_SDK\common_sdk\profile\time;H:\Common_SDK\common_sdk\library\driver\key;H:\Common_SDK\common_sdk\library\driver\led;H:\Common_SDK\common_sdk\library\driver\imu;H:\Common_SDK\common_sdk\library\driver\oled;H:\Common_SDK\common_sdk\library\driver\motor;H:\Common_SDK\common_sdk\library\algorithm\pid;..\..\project_src\system_config;..\..\project_src\system_adapter;..\..\project_src\system_adapter\hardware_platform</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -381,16 +381,6 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Application/MDK-ARM</GroupName>
-          <Files>
-            <File>
-              <FileName>startup_stm32f103xb.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>startup_stm32f103xb.s</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>Application/User</GroupName>
           <Files>
             <File>
@@ -407,6 +397,144 @@
               <FileName>stm32f1xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/stm32f1xx_hal_msp.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Application/adapter</GroupName>
+          <Files>
+            <File>
+              <FileName>system_adapter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\project_src\system_adapter\system_adapter.c</FilePath>
+            </File>
+            <File>
+              <FileName>hardware_platform_adapter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\project_src\system_adapter\hardware_platform\hardware_platform_adapter.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Application/business_logic</GroupName>
+        </Group>
+        <Group>
+          <GroupName>Application/MDK-ARM</GroupName>
+          <Files>
+            <File>
+              <FileName>startup_stm32f103xb.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>startup_stm32f103xb.s</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MCOM_SDK/sdk/default_config</GroupName>
+          <Files>
+            <File>
+              <FileName>defaults_config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\defaults_config\defaults_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>defaults_definitions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\defaults_config\defaults_definitions.h</FilePath>
+            </File>
+            <File>
+              <FileName>sdk_include.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\sdk_include.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MCOM_SDK/sdk/profile</GroupName>
+          <Files>
+            <File>
+              <FileName>battery_profile.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\profile\battery\battery_profile.c</FilePath>
+            </File>
+            <File>
+              <FileName>assert_profile.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\profile\debug\assert_profile.c</FilePath>
+            </File>
+            <File>
+              <FileName>log_profile.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\profile\debug\log_profile.c</FilePath>
+            </File>
+            <File>
+              <FileName>printf_profile.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\profile\debug\printf_profile.c</FilePath>
+            </File>
+            <File>
+              <FileName>device_info_profile.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\profile\device_info\device_info_profile.c</FilePath>
+            </File>
+            <File>
+              <FileName>protocol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\profile\protocol\protocol.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay_profile.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\profile\time\delay_profile.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MCOM_SDK/system_config</GroupName>
+          <Files>
+            <File>
+              <FileName>system_config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\project_src\system_config\system_config.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MCOM_SDK/sdk/driver</GroupName>
+          <Files>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\library\driver\key\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\library\driver\led\led.c</FilePath>
+            </File>
+            <File>
+              <FileName>mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\library\driver\imu\mpu6050.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\library\driver\motor\motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\library\driver\oled\oled.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MCOM_SDK/sdk/algorithm</GroupName>
+          <Files>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>H:\Common_SDK\common_sdk\library\algorithm\pid\pid.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -511,131 +639,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>MCOM_SDK/sdk/default_config</GroupName>
-          <Files>
-            <File>
-              <FileName>defaults_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\defaults_config\defaults_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>defaults_definitions.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\defaults_config\defaults_definitions.h</FilePath>
-            </File>
-            <File>
-              <FileName>sdk_include.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\sdk_include.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>MCOM_SDK/sdk/profile</GroupName>
-          <Files>
-            <File>
-              <FileName>battery_profile.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\battery\battery_profile.c</FilePath>
-            </File>
-            <File>
-              <FileName>assert_profile.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\debug\assert_profile.c</FilePath>
-            </File>
-            <File>
-              <FileName>log_profile.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\debug\log_profile.c</FilePath>
-            </File>
-            <File>
-              <FileName>printf_profile.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\debug\printf_profile.c</FilePath>
-            </File>
-            <File>
-              <FileName>device_info_profile.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\device_info\device_info_profile.c</FilePath>
-            </File>
-            <File>
-              <FileName>protocol.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\protocol\protocol.c</FilePath>
-            </File>
-            <File>
-              <FileName>delay_profile.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\profile\time\delay_profile.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>MCOM_SDK/system_config</GroupName>
-          <Files>
-            <File>
-              <FileName>system_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\..\..\Common_SDK\system_config\system_config.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>MCOM_SDK/sdk/driver</GroupName>
-          <Files>
-            <File>
-              <FileName>key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\library\driver\key\key.c</FilePath>
-            </File>
-            <File>
-              <FileName>led.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\library\driver\led\led.c</FilePath>
-            </File>
-            <File>
-              <FileName>mpu6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\library\driver\imu\mpu6050.c</FilePath>
-            </File>
-            <File>
-              <FileName>oled.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\library\driver\oled\oled.c</FilePath>
-            </File>
-            <File>
-              <FileName>motor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\library\driver\motor\motor.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>MCOM_SDK/sdk/algorithm</GroupName>
-          <Files>
-            <File>
-              <FileName>pid.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\common_sdk\library\algorithm\pid\pid.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>MCOM_SDK/adapter</GroupName>
-          <Files>
-            <File>
-              <FileName>system_adapter.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\system_adapter\system_adapter.c</FilePath>
-            </File>
-            <File>
-              <FileName>hardware_platform_adapter.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Common_SDK\system_adapter\hardware_platform\hardware_platform_adapter.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
@@ -658,7 +661,7 @@
   <LayerInfo>
     <Layers>
       <Layer>
-        <LayName>&lt;Project Info&gt;</LayName>
+        <LayName>intertia_wheel_pendulum</LayName>
         <LayTarg>0</LayTarg>
         <LayPrjMark>1</LayPrjMark>
       </Layer>
