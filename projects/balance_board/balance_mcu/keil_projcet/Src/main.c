@@ -119,6 +119,8 @@ int main(void)
     led_adapter_init(&g_led_adapter);
     mpu6050_adapter_init(&g_mpu6050_adapter);
     oled_adapter_init(&g_oled_adapter);
+
+    HAL_TIM_Base_Start_IT(&htim4);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -129,7 +131,7 @@ int main(void)
     OLED_ShowString(25, 8,"Board",8,1);
     OLED_ShowString(34, 16,"YJ",8,1);
     OLED_Refresh();
-    
+
     while (1)
     {
 //        set_led_state(0, true);
@@ -452,7 +454,7 @@ static void MX_TIM4_Init(void)
   htim4.Instance = TIM4;
   htim4.Init.Prescaler = 72-1;
   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 20000;
+  htim4.Init.Period = 1000;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
