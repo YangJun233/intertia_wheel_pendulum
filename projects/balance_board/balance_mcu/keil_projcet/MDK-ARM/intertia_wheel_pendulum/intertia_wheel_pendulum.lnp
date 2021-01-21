@@ -4,6 +4,7 @@
 "intertia_wheel_pendulum\stm32f1xx_hal_msp.o"
 "intertia_wheel_pendulum\system_adapter.o"
 "intertia_wheel_pendulum\hardware_platform_adapter.o"
+"intertia_wheel_pendulum\motor_ctrl.o"
 "intertia_wheel_pendulum\startup_stm32f103xb.o"
 "intertia_wheel_pendulum\battery_profile.o"
 "intertia_wheel_pendulum\assert_profile.o"

@@ -24,6 +24,8 @@
 /* USER CODE BEGIN Includes */
 #include "sdk_include.h"
 #include "system_adapter.h"
+
+#include "motor_ctrl.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -150,6 +152,22 @@ int main(void)
     }
     /* USER CODE END 3 */
 }
+
+
+
+/* USER CODE BEGIN 0 */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+    get_att(100);
+    
+    speed_control(0);
+    angle_control(0);
+    
+    speed_control(1);
+    angle_control(1);
+}
+/* USER CODE END 0 */
+
 
 /**
   * @brief System Clock Configuration
