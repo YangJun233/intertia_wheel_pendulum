@@ -22,22 +22,20 @@ void motor_ctrl_init(void)
     pid_speed_y.out_max = -1000;
 }
 
-
+int16_t imu_data[6];
+float	pitch, roll;
 void get_att(uint16_t Ws)
 {
-	int16_t imu_data[6];
-	float	pitch, roll;
-	
 	mpu6050_read_6axis_data(&imu_data[GYRO_X], &imu_data[GYRO_Y], &imu_data[GYRO_Z], &imu_data[ACC_X], &imu_data[ACC_Y], &imu_data[ACC_Z]);
 	
     gyro_x = imu_data[GYRO_X] / 65.5f;
     gyro_y = imu_data[GYRO_Y] / 65.5f;
     
-	roll = atan2(imu_data[ACC_X], -imu_data[ACC_Z]);
-	pitch  = atan2(imu_data[ACC_Y], -imu_data[ACC_Z]);
+	roll = atan2(imu_data[ACC_X], imu_data[ACC_Z]) / 3.1415926f * 180.0f;
+	pitch  = atan2(imu_data[ACC_Y], imu_data[ACC_Z]) / 3.1415926f * 180.0f;;
     
-    angle_x	= 0.7 * (angle_x + gyro_x * Ws) + 0.3 * pitch;
-	angle_y	= 0.7 * (angle_y + gyro_y * Ws) + 0.3 * roll;
+    angle_x	= 0.7 * (angle_x + gyro_x / Ws) + 0.3 * pitch;
+	angle_y	= 0.7 * (angle_y + gyro_y / Ws) + 0.3 * roll;
 }
 
 

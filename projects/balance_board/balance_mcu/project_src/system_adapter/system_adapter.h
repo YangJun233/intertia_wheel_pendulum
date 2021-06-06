@@ -30,5 +30,6 @@ extern key_adapter_s g_key_adapter;
 extern led_adapter_s g_led_adapter;
 extern mpu6050_adapter_s g_mpu6050_adapter;
 extern oled_adapter_s g_oled_adapter;
+extern motor_adapter_s g_motor_adapter;
 
 #endif // SYSTEM_ADAPTER_H

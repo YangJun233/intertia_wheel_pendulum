@@ -121,7 +121,8 @@ int main(void)
     led_adapter_init(&g_led_adapter);
     mpu6050_adapter_init(&g_mpu6050_adapter);
     oled_adapter_init(&g_oled_adapter);
-
+    motor_adapter_init(&g_motor_adapter);
+    
     HAL_TIM_Base_Start_IT(&htim4);
     /* USER CODE END 2 */
 
@@ -133,13 +134,23 @@ int main(void)
     OLED_ShowString(25, 8,"Board",8,1);
     OLED_ShowString(34, 16,"YJ",8,1);
     OLED_Refresh();
+    
+//    motor_pwm_set(MOTOR_NO_X, 300);
+//    motor_pwm_set(MOTOR_NO_Y, 300);
 
+//    bool dir = 0;
+    
     while (1)
     {
-//        set_led_state(0, true);
-//        sdk_delay_ms(1);
-//        set_led_state(0, false);
-//        sdk_delay_ms(999);
+//        dir = !dir;
+//        motor_dir(MOTOR_NO_X, dir);
+//        motor_dir(MOTOR_NO_Y, dir);
+        
+        set_led_state(0, true);
+        sdk_delay_ms(1);
+        set_led_state(0, false);
+        sdk_delay_ms(999);
+        
         OLED_ShowString(55, 24,"*",8,1);
         sdk_delay_ms(500);
         OLED_Refresh();
@@ -159,10 +170,10 @@ int main(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     get_att(100);
-    
+
     speed_control(0);
     angle_control(0);
-    
+
     speed_control(1);
     angle_control(1);
 }
@@ -428,7 +439,7 @@ static void MX_TIM3_Init(void)
     }
     sConfigOC.OCMode = TIM_OCMODE_PWM1;
     sConfigOC.Pulse = 0;
-    sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+    sConfigOC.OCPolarity = TIM_OCPOLARITY_LOW;
     sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
     if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
     {
@@ -491,7 +502,7 @@ static void MX_TIM4_Init(void)
         Error_Handler();
     }
     /* USER CODE BEGIN TIM4_Init 2 */
-    HAL_TIM_Base_Start_IT(&htim4);
+
     /* USER CODE END TIM4_Init 2 */
 
 }
@@ -607,7 +618,7 @@ static void MX_GPIO_Init(void)
 
     /*Configure GPIO pins : OLED_SCL_Pin OLED_SDA_Pin */
     GPIO_InitStruct.Pin = OLED_SCL_Pin|OLED_SDA_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
